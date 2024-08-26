@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 背景图不会撑开盒子，盒子多大，背景图就多大 */
+body {
+  font-family: "roboto", sans-serif;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* flex布局，宽高由内容撑开，所以必须有内容，背景图不算内容 ，里面不放东西就撑不开了*/
+.container .panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  margin: 0 10px;
+  /* flex: 0.5; */
+  flex: 1;
+  /* flex-basis: 7%; */
+  position: relative;
+  transition: all 0.7s ease-in;
+}
+
+.panel.active {
+  /* flex-basis: 68%; */
+  flex: 8;
+}
+.container .panel h3 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+.panel.active h3 {
+  opacity: 1;
+}
