@@ -1,1 +1,1 @@
-html,css,javascript,50天50题，来源自github的项目，每一个项目中note中记录了关键点
+使用html,css,javascript完成50个小项目，项目源自https://github.com/bradtraversy/50projects50days,在我实现的过程中，也记录了一些自己的理解
