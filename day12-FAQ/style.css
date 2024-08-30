@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "roboto", sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin: 50px 0 30px;
+  text-align: center;
+}
+
+.faq-container {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  max-width: 600px;
+  width: 500px;
+}
+.faq {
+  background-color: transparent;
+  border: 1px solid #9fa4a8;
+  border-radius: 10px;
+  margin: 20px 0;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  /* transition: 0.3s ease; */
+}
+
+.faq.active {
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 背景的聊天图标，用了两个，现在重叠在一起了 */
+.faq.active::before,
+.faq.active::after {
+  content: "\f075";
+  font-family: "Font Awesome 5 Free";
+  color: #2ecc71;
+  font-size: 7rem;
+  position: absolute;
+  opacity: 0.2;
+  top: 20px;
+  left: 20px;
+  z-index: 0;
+}
+.faq.active::before {
+  color: #3498db;
+  top: -10px;
+  left: -30px;
+  transform: rotateY(180deg);
+}
+
+.faq-title {
+  margin: 0 35px 0 0;
+}
+
+.faq-text {
+  display: none;
+  margin: 30px 0 0;
+}
+.faq.active .faq-text {
+  display: block;
+}
+
+/*  图标*/
+.faq-toggle {
+  height: 30px;
+  width: 30px;
+  border: 0;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 30px;
+  right: 15px;
+
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0; /*图标库的，也许自带了padding*/
+
+  /* border: 1px solid rebeccapurple; */
+}
+
+.faq-toggle:focus {
+  outline: 0;
+}
+
+/* 默认不显示X按钮 */
+.faq-toggle .fas.fa-times {
+  display: none;
+}
+
+/* 激活状态显示X按钮，此时的背景不同 */
+.faq.active .faq-toggle {
+  color: #fff;
+  background-color: #9fa4a8;
+}
+/* 激活状态显示X按钮 */
+.faq.active .faq-toggle .fas.fa-times {
+  display: inline-block;
+}
+/* 激活状态 不显示 下拉 按钮 */
+.faq.active .faq-toggle .fa-chevron-down {
+  display: none;
+}
