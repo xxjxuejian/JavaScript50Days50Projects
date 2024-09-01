@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+
+/* 移动端适配和响应式布局以及自适应页面 */
+
+:root {
+  --primary-color: #22254b;
+  --secondary-color: #373b69;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--secondary-color);
+}
+.search {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: #fff;
+}
+.search::placeholder {
+  color: #7378c5;
+}
+
+.search:focus {
+  outline: none;
+  background-color: var(--primary-color);
+}
+
+#main {
+  display: flex;
+  /* 不设置wrap就会自动收缩，因为有flex-shrink属性 */
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie {
+  width: 300px;
+  margin: 1rem;
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  position: relative;
+  /* 下面的盒子要隐藏 */
+  overflow: hidden;
+}
+
+.movie img {
+  width: 100%;
+}
+.movie-info {
+  padding: 0.5rem 1rem;
+  letter-spacing: 0.5px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+/* 最多显示三行文本，超过的显式省略号 */
+.movie-info .movie-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+}
+.movie-info .rate {
+  background-color: #22254b;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-weight: bold;
+}
+.movie-info .rate.green {
+  color: lightgreen;
+}
+.movie-info .rate.orange {
+  color: orange;
+}
+.movie-info .rate.red {
+  color: red;
+}
+
+/* overview的高度是根据内容多少决定的，但是最大高度不能超过父亲的90%，或者100%，这是自己规定的
+  另外要考虑是用高度为0，然后变高, 但是高度不容易确定，所以不用这种方案
+  那就是 移出区域，然后移入进来
+*/
+.overview {
+  width: 100%;
+  padding: 2rem;
+  max-height: 90%;
+
+  position: absolute;
+  /* top: 0;
+  left: 0;
+  子元素撑开到父元素一样的宽度，的一种方案，margin,默认就是0，也可以不设置
+  margin: auto 0; */
+  bottom: 0;
+  overflow-y: auto; /*能不能设置内容超过的时候，隐藏滚动条，但是可以滚动*/
+  background-color: #fff;
+
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
+}
