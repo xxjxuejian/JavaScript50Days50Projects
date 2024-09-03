@@ -61,6 +61,7 @@ body {
   width: 200px;
   height: 200px;
   position: relative;
+  /* border-radius: 50%; */
 }
 
 /* 指针需要相对钟表来定位 */
@@ -70,27 +71,31 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -100%);
   background-color: var(--primary-color);
 
   /* 因为指针向上移动了，所以旋转原点变了，不是 top left */
   /* transform-origin: ; */
-  transform-origin: top left;
+  transform-origin: bottom center;
+  transition: all 0.5s ease-in;
 }
 
-/* 把指针移动到对应位置，以中心为点 */
+/* 把指针移动到对应位置，以中心为点 
+translate(-50%, -100%)是先移动指针到0点处，然后开始旋转
+本来指针不是在0点处的，不能直接旋转
+*/
 .needle.hour {
-  /* transform: translate(-50%, -100%); */
-  transform: rotate(30deg);
+  /* transform: translate(-50%, -100%) rotate(30deg); */
+  /* transform:rotate(30deg) ; */
 }
 
 .needle.minute {
-  transform: rotate(60deg);
+  /* transform: translate(-50%, -100%) rotate(60deg); */
   height: 100px;
 }
 
 .needle.second {
-  transform: rotate(90deg);
+  /* transform: translate(-50%, -100%) rotate(270deg); */
   height: 100px;
   background-color: #e74c3c;
 }
