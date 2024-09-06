@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .toolbox {
+        display: flex;
+        /* justify-content: space-between; */
+        justify-content: center;
+        border: 1px solid lightcoral;
+        /* width: 500px; */
+      }
+      .toolbox > * {
+        height: 50px;
+        width: 50px;
+      }
+      .toolbox > *:nth-child(5) {
+        margin-left: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbox">
+      <button id="decrease">-</button>
+      <span id="size">1</span>
+      <button id="increase">+</button>
+      <!-- 取色器 -->
+      <input type="color" id="color" />
+      <button id="clear">X</button>
+    </div>
+  </body>
+</html>

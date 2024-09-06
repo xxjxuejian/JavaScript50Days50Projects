@@ -20,6 +20,9 @@ function startPosition(e) {
 
   color = colorEl.value;
   lineWidth = +sizeEl.textContent;
+  ctx.lineWidth = lineWidth; // 线条宽度
+  ctx.strokeStyle = color; // 线条颜色
+
   startX = e.offsetX;
   startY = e.offsetY;
 
@@ -39,9 +42,6 @@ function draw(e) {
 
   ctx.moveTo(startX, startY);
   ctx.lineTo(e.offsetX, e.offsetY);
-  console.log(startX, startY, e.offsetX, e.offsetY);
-  ctx.lineWidth = lineWidth; // 线条宽度
-  ctx.strokeStyle = color; // 线条颜色
   ctx.stroke();
 
   startX = e.offsetX;
