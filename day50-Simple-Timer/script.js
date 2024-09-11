@@ -1,6 +1,7 @@
 const timerEl = document.querySelector(".timer");
 const totalSeconds = 60;
 let currentSeconds = totalSeconds;
+timerEl.textContent = formatTime(currentSeconds);
 
 // 根据秒数格式化时间戳
 function formatTime(seconds) {
@@ -16,6 +17,17 @@ function formatTime(seconds) {
   )}`;
 }
 
-function run() {}
+const timer = setInterval(run, 1000);
+function run() {
+  currentSeconds--;
+  if (currentSeconds <= 0) {
+    clearInterval(timer);
+    reset();
+  }
 
-timerEl.textContent = formatTime(totalSeconds);
+  timerEl.textContent = formatTime(currentSeconds);
+}
+
+function reset() {
+  timerEl.textContent = "00:00";
+}
